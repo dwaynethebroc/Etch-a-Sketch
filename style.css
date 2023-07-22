@@ -1,6 +1,5 @@
 body {
-    display: grid;
-    flex-direction: row;
+    
 }
 
 #grid{
@@ -8,7 +7,11 @@ body {
     border: 2px solid black;
 }
 
-#row {
+.row {
     display: grid;
+    border: 2px solid black;
+}
+
+.cell {
     border: 2px solid black;
 }

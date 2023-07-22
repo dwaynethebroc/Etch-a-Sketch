@@ -10,7 +10,7 @@ for (i = 0; i <= 16; i++){
 
     for(j=0; j <= 16; j++){
         cell = document.createElement("div");
-        cell.innerText = `div \n ${j}`
+        cell.innerText = `div ${j}`
         cell.style.backgroundColor = "orange";
         cell.classList.add(`cell`);
         row.appendChild(cell);
