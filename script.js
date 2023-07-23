@@ -1,5 +1,11 @@
 let grid = document.getElementById("grid");
-let cell = document.createElement("div");
+let cell = document.getElementsByClassName("cell");
+
+function changeColor() {
+    this.classList.add('hovered');
+    
+}
+
 
 for (i = 1; i <= 16; i++){
 
@@ -10,8 +16,9 @@ for (i = 1; i <= 16; i++){
     for(j=1; j <= 16; j++){
         cell = document.createElement("div");
         cell.classList.add(`cell`);
+        cell.addEventListener("mouseover", changeColor);
         row.appendChild(cell);
     }
-
-
 }
+
+
