@@ -10,7 +10,9 @@ button.addEventListener("click", changeGridSize);
 
 //when hovering over div, change background color to random color
 function changeColor() {
-    //this.classList.add('hovered'); <--- alternative option by linking CSS class to hovered item with background color stored there, can't be random color however
+    //alternative option by linking CSS class to hovered item with background color stored there, can't be random color however
+    //this.classList.add('hovered'); 
+
     this.style.backgroundColor = randomRgbColor();
 }
 
@@ -52,13 +54,14 @@ function clearGrid(){
 //after verification it clears grid, and then proceeds to build a new grid,
 function changeGridSize(){
     let response = prompt('Enter the number of squares on the grid you would like to see? Please only include a number between 1-100.', '');
-    let input = Number(response);
+    let input = parseInt(response);
+    console.log(input);
+    console.log(typeof(input));
 
     if(input > 100 || input < 1){
         changeGridSize();
     }
-    else if (input === Number){
-        console.log(typeof(input))
+    else if (isNaN(input)){
         changeGridSize();
     }
     else{
