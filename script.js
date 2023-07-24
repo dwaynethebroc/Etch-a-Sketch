@@ -2,7 +2,6 @@ let grid = document.getElementById("grid");
 let row = document.getElementsByClassName("row");
 let cell = document.getElementsByClassName("cell");
 let button = document.getElementById("numberOfSquares");
-let gridSize = 16;
 let input;
 let response;
 
@@ -40,31 +39,33 @@ function clearGrid(){
 
 function changeGridSize(){
     response = prompt('Enter the number of squares on the grid you would like to see? Please only include a number between 1-100.', '');
-    console.log(response);
     input = Number(response);
-    console.log(typeof(input));
-    console.log(input);
 
-    while(input > 100 && input < 1 && input !== typeof(Number)){
+    if(input > 100 || input < 1){
         changeGridSize();
     }
+    else if (input === Number){
+        console.log(typeof(input))
+        changeGridSize();
+    }
+    else{
+        clearGrid();
 
-    clearGrid();
-    
-    for (i = 1; i <= input; i++){
+        for (i = 1; i <= input; i++){
 
-        let row = document.createElement("div");
-        row.classList.add(`row`);
-        grid.appendChild(row);
+            let row = document.createElement("div");
+            row.classList.add(`row`);
+            grid.appendChild(row);
 
-        for(j=1; j <= input; j++){
-            cell = document.createElement("div");
-            cell.classList.add(`cell`);
-            cell.addEventListener("mouseover", changeColor);
-            row.appendChild(cell);
+            for(j=1; j <= input; j++){
+                cell = document.createElement("div");
+                cell.classList.add(`cell`);
+                cell.addEventListener("mouseover", changeColor);
+                row.appendChild(cell);
+            }
         }
     }
 }
 
-buildGrid(gridSize);
+buildGrid(16);
 
