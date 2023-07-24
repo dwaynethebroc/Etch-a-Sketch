@@ -11,6 +11,10 @@ body {
     height: 960px;
 }
 
+#numberOfSquares {
+    font-size: 30px;
+}
+
 
 .row {
     display: grid;
