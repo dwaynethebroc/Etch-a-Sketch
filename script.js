@@ -27,17 +27,14 @@ function buildGrid(gridSize) {
     }
 }
 
-function clearGrid(gridSize){
-    for (i = gridSize; i > 0; i--){
-        row.classList.remove('row');
-        grid.removeChild(row);
+function clearGrid(){
 
-        for(j = gridSize; j > 0; j--){
-            cell.classList.remove('cell');
-            cell.removeEventListener("mouseover", changeColor);
-            row.removeChild(cell);
-        }
+    let divs = grid.getElementsByTagName("div")
+
+    while(divs[0]){
+        divs[0].parentNode.removeChild(divs[0]);
     }
+    
     
 }
 
@@ -52,10 +49,8 @@ function changeGridSize(){
         changeGridSize();
     }
 
-    gridSize = input;
-    clearGrid(gridSize);
-
-        
+    clearGrid();
+    
     for (i = 1; i <= input; i++){
 
         let row = document.createElement("div");
